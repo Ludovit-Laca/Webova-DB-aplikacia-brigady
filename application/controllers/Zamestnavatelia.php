@@ -30,10 +30,10 @@ class Zamestnavatelia extends CI_Controller
         }
         $data['zamestnavatelia'] = $this->Zamestnavatelia_model->getRows();
         $data['title'] = 'Zamestnavatelia List';
-        //nahratie zoznamu teplot
-        $this->load->view('templates/header', $data);
+        //nahratie zoznamu zamestnancov
+         $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/index', $data);
-        $this->load->view('templates/footer');
+         $this->load->view('common/footer');
     }
 
     // Zobrazenie detailu o zamestnavatelovi
@@ -45,9 +45,9 @@ class Zamestnavatelia extends CI_Controller
             $data['zamestnavatelia'] = $this->Zamestnavatelia_model->getRows($id);
             $data['title'] = $data['zamestnavatelia']['nazov'];
             // nahratie detailu zaznamu
-            $this->load->view('templates/header', $data);
+            $this->load->view('common/header', $data);
             $this->load->view('zamestnavatelia/view', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('common/footer');
         } else {
             redirect('/zamestnavatelia');
 
@@ -87,9 +87,9 @@ class Zamestnavatelia extends CI_Controller
         $data['title'] = 'Create Zamestnavatel';
         $data['action'] = 'Add';
         // zobrazenie formulara pre vlozenie a editaciu dat
-        $this->load->view('templates/header', $data);
+        $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/add-edit', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('common/footer');
     }
 
     // aktualizacia dat
@@ -126,9 +126,9 @@ class Zamestnavatelia extends CI_Controller
         $data['title'] = 'Update Zamestnavatel';
         $data['action'] = 'Edit';
         // zobrazenie formulara pre vlozenie a editaciu dat
-        $this->load->view('templates/header', $data);
+        $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/add-edit', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('common/footer');
     }
 
     // odstranenie dat
