@@ -32,8 +32,15 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
+                    <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
+                    <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -98,25 +105,25 @@
                 <div class="col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"><?php echo $action; ?>
-                            Zamestnavatelia <a href="<?php echo site_url('zamestnavatelia/'); ?>"
+                            zamestnávateľ<a href="<?php echo site_url('zamestnavatelia/'); ?>"
                                                class="glyphicon glyphicon-arrow-left pull-right"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
-                                    <label for="title">Nazov</label>
+                                    <label for="title">Názov</label>
                                     <input type="text" class="form-control"
                                            name="nazov" placeholder="Zadajte nazov" value="<?php echo
                                     !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
                                     <?php echo form_error('nazov', '<p
-class="help-block text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <label for="title">Telefon</label>
-                                    <input type="text" class="form-control"
+                                    <label for="title">Telefón</label>
+                                    <input type="number" class="form-control"
                                            name="telefon" placeholder="Zadajte telefon" value="<?php echo
                                     !empty($post['telefon']) ? $post['telefon'] : ''; ?>">
                                     <?php echo form_error('telefon', '<p
-class="help-block text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Email</label>
@@ -127,7 +134,7 @@ class="help-block text-danger">', '</p>'); ?>
 text-danger">', '</p>'); ?>
                                 </div>
                                 <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Submit"/>
+btn-primary" value="Odoslať"/>
                             </form>
                         </div>
                     </div>

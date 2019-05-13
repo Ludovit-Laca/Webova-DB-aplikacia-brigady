@@ -32,13 +32,13 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
                     <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
                     <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
                     <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
-                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li class="active"><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
@@ -77,12 +77,12 @@
     <section class="content-header">
         <h1>
             Tabuľka
-            <small>Zamestnávatelia</small>
+            <small>Typ brigády</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-table"></i>Domov</a></li>
             <li><a href="#">Tabuľky</a></li>
-            <li class="active">Zamestnávatelia</li>
+            <li class="active">Typ brigády</li>
         </ol>
     </section>
 
@@ -93,32 +93,22 @@
 
 
 
-                <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Detaily zamestnávateľa<a href="<?php
-                            echo site_url('zamestnavatelia/'); ?>" class="glyphicon glyphicon-arrow-left
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Detaily typu brigády<a href="<?php
+                        echo site_url('studenti/'); ?>" class="glyphicon glyphicon-arrow-left
 pull-right"></a></div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label>Názov:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['nazov']) ? $zamestnavatelia['nazov']
-                                        : ''; ?></p>
-                            </div>
-                            <div class="form-group">
-                                <label>Telefón:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['telefon']) ? $zamestnavatelia['telefon'] : ''; ?> </p>
-                            </div>
-                            <div class="form-group">
-                                <label>Email:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['email']) ? $zamestnavatelia['email'] : ''; ?> </p>
-                            </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Názov:</label>
+                            <p><?php echo
+                                !empty($typ_brigady['nazov']) ? $typ_brigady['nazov']
+                                    : ''; ?></p>
                         </div>
                     </div>
                 </div>
+            </div>
 
     </section>
     <!-- /.content -->
-            </div>
+</div>

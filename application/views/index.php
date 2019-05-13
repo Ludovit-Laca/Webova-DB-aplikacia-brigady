@@ -34,7 +34,13 @@
                 <ul class="treeview-menu">
                     <li><a href="index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
-
+                    <li><a href="index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
+                    <li><a href="index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li><a href="index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
+                    <li><a href="index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li><a href="index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
+                    <li><a href="index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
             <li class="treeview">

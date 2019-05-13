@@ -34,6 +34,13 @@
                 <ul class="treeview-menu">
                     <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li class="active"><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
+                    <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
+                    <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -70,12 +77,12 @@
     <section class="content-header">
         <h1>
             Tabuľka
-            <small>Zamestnávatelia</small>
+            <small>Študenti</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-table"></i>Domov</a></li>
             <li><a href="#">Tabuľky</a></li>
-            <li class="active">Zamestnávatelia</li>
+            <li class="active">Študenti</li>
         </ol>
     </section>
 
@@ -97,7 +104,7 @@
                 <div class="col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"><?php echo $action; ?>
-                            Študenti <a href="<?php echo site_url('studenti/'); ?>"
+                            študent <a href="<?php echo site_url('studenti/'); ?>"
                                         class="glyphicon glyphicon-arrow-left pull-right"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
@@ -107,7 +114,7 @@
                                            name="meno" placeholder="Zadajte meno" value="<?php echo
                                     !empty($post['meno']) ? $post['meno'] : ''; ?>">
                                     <?php echo form_error('meno', '<p
-class="help-block text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Priezvisko</label>
@@ -115,11 +122,11 @@ class="help-block text-danger">', '</p>'); ?>
                                            name="priezvisko" placeholder="Zadajte priezvisko" value="<?php echo
                                     !empty($post['priezvisko']) ? $post['priezvisko'] : ''; ?>">
                                     <?php echo form_error('priezvisko', '<p
-class="help-block text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <label for="title">Telefon</label>
-                                    <input type="text" class="form-control"
+                                    <label for="title">Telefón</label>
+                                    <input type="number" class="form-control"
                                            name="telefon" placeholder="Zadajte telefon" value="<?php echo
                                     !empty($post['telefon']) ? $post['telefon'] : ''; ?>">
                                     <?php echo form_error('telefon', '<p class="helpblock
@@ -131,10 +138,10 @@ text-danger">', '</p>'); ?>
                                            name="adresa" placeholder="Zadajte adresu" value="<?php echo
                                     !empty($post['adresa']) ? $post['adresa'] : ''; ?>">
                                     <?php echo form_error('adresa', '<p
-class="help-block text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Submit"/>
+btn-primary" value="Odoslať"/>
                             </form>
                         </div>
                     </div>

@@ -62,8 +62,10 @@ class Zamestnavatelia extends CI_Controller
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'required');
-            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'required');
+
+
+            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'trim|required|min_length[4]|max_length[12]');
+            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'trim|required|min_length[10]|max_length[10]');
             $this->form_validation->set_rules('email', 'email zamestnavatela', 'required');
             // priprava dat pre vlozenie
             $postData = array(
@@ -101,8 +103,8 @@ class Zamestnavatelia extends CI_Controller
         // zistenie, ci bola zaslana poziadavka na aktualizaciu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'required');
-            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'required');
+            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'trim|required|min_length[4]|max_length[12]');
+            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'trim|required|min_length[10]|max_length[10]');
             $this->form_validation->set_rules('email', 'email zamestnavatela', 'required');
             // priprava dat pre aktualizaciu
             $postData = array(

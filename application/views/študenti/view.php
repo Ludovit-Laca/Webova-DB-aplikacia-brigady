@@ -34,6 +34,13 @@
                 <ul class="treeview-menu">
                     <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li class="active"><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
+                    <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
+                    <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -104,7 +111,7 @@ pull-right"></a></div>
                                 !empty($studenti['priezvisko']) ? $studenti['priezvisko'] : ''; ?> </p>
                         </div>
                         <div class="form-group">
-                            <label>Telefon:</label>
+                            <label>Telefón:</label>
                             <p><?php echo
                                 !empty($studenti['telefon']) ? $studenti['telefon'] : ''; ?> </p>
                         </div>

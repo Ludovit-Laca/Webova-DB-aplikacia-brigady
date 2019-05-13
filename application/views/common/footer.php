@@ -29,16 +29,24 @@
 <!-- page script -->
 <script>
     $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging'      : true,
-            'lengthChange': false,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : false
-        })
-    })
+        $('#example1').DataTable( {
+            "language": {
+                "lengthMenu": "Zobraziť _MENU_ záznamov na stránku",
+                "search": "Vyhľadať:",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Strana _PAGE_ z _PAGES_",
+                "infoEmpty": "Žiadne záznamy k dispozícii",
+                "zeroRecords":    "Nenašiel sa žiadny záznam",
+                "paginate": {
+                    "first":      "Prvý",
+                    "last":       "Posledný",
+                    "next":       "Nasledujúca",
+                    "previous":   "Predošla"
+                },
+                "infoFiltered": "(filtered from _MAX_ total records)"
+            }
+        } );
+    });
 </script>
 </body>
 </html>

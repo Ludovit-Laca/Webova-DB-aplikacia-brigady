@@ -32,13 +32,13 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
                     <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
                     <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
                     <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
-                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li class="active"><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
@@ -77,48 +77,68 @@
     <section class="content-header">
         <h1>
             Tabuľka
-            <small>Zamestnávatelia</small>
+            <small>Typ brigády</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-table"></i>Domov</a></li>
             <li><a href="#">Tabuľky</a></li>
-            <li class="active">Zamestnávatelia</li>
+            <li class="active">Typ brigády</li>
         </ol>
     </section>
-
-
     <!-- Main content -->
     <section class="content">
-        <div class="box-header">
-
-
-
-                <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Detaily zamestnávateľa<a href="<?php
-                            echo site_url('zamestnavatelia/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label>Názov:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['nazov']) ? $zamestnavatelia['nazov']
-                                        : ''; ?></p>
-                            </div>
-                            <div class="form-group">
-                                <label>Telefón:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['telefon']) ? $zamestnavatelia['telefon'] : ''; ?> </p>
-                            </div>
-                            <div class="form-group">
-                                <label>Email:</label>
-                                <p><?php echo
-                                    !empty($zamestnavatelia['email']) ? $zamestnavatelia['email'] : ''; ?> </p>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="panel-heading">Typ brigády <a href="<?php echo
+                            site_url('typ_brigady/add/'); ?>" class="glyphicon glyphicon-plus pull-right"></a></h3>
                     </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th width="20%">ID</th>
+                                <th width="50%">Typ brigády</th>
+                                <th width="30%">Funkcie</th>
+                            </tr>
+                            </thead>
+                            <tbody id="userData">
+                            <?php if (!empty($typ_brigady)): foreach ($typ_brigady as $tBrigad): ?>
+                                <tr>
+                                    <td><?php echo '#' . $tBrigad['id_typu']; ?></td>
+                                    <td><?php echo $tBrigad['nazov']; ?></td>
+                                    <td>
+                                        <a href="<?php echo
+                                        site_url('typ_brigady/view/' . $tBrigad['id_typu']); ?>"
+                                           class="glyphicon glyphicon-eye-open"></a>
+                                        <a href="<?php echo
+                                        site_url('typ_brigady/edit/' . $tBrigad['id_typu']); ?>"
+                                           class="glyphicon glyphicon-edit"></a>
+                                        <a href="<?php echo
+                                        site_url('typ_brigady/delete/' . $tBrigad['id_typu']); ?>"
+                                           class="glyphicon glyphicon-trash"
+                                           onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; else: ?>
+                                <tr>
+                                    <td colspan="4">Nenašiel sa žiadny záznam :(
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </section>
     <!-- /.content -->
-            </div>
+</div>
+<!-- /.content-wrapper -->

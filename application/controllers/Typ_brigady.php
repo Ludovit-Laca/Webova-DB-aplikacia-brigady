@@ -2,18 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: lacal
- * Date: 6.5.2019
- * Time: 17:52
+ * Date: 13.5.2019
+ * Time: 15:04
  */
 
-class Studenti extends CI_Controller
+class Typ_brigady extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->load->model('Studenti_model');
+        $this->load->model('TypBrigady_model');
     }
 
     public function index()
@@ -28,28 +28,28 @@ class Studenti extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $data['studenti'] = $this->Studenti_model->getRows();
-        $data['title'] = 'Študenti List';
-        //nahratie zoznamu zamestnancov
+        $data['typ_brigady'] = $this->TypBrigady_model->getRows();
+        $data['title'] = 'typ_brigady List';
+        //nahratie zoznamu typBrigady
         $this->load->view('common/header', $data);
-        $this->load->view('študenti/index', $data);
+        $this->load->view('typ_brigady/index', $data);
         $this->load->view('common/footer');
     }
 
-    // Zobrazenie detailu o študentovi
+    // Zobrazenie detailu o type brigady
     public function view($id)
     {
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
-            $data['studenti'] = $this->Studenti_model->getRows($id);
-            $data['title'] = $data['studenti']['meno'];
+            $data['typ_brigady'] = $this->TypBrigady_model->getRows($id);
+            $data['title'] = $data['typ_brigady']['nazov'];
             // nahratie detailu zaznamu
             $this->load->view('common/header', $data);
-            $this->load->view('študenti/view', $data);
+            $this->load->view('typ_brigady/view', $data);
             $this->load->view('common/footer');
         } else {
-            redirect('/studenti');
+            redirect('/typ_brigady');
 
         }
     }
@@ -62,35 +62,29 @@ class Studenti extends CI_Controller
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('meno', 'meno študenta', 'trim|required|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('priezvisko', 'priezvisko študenta', 'trim|required|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('telefon', 'telefon študenta', 'trim|required|min_length[10]|max_length[10]');
-            $this->form_validation->set_rules('adresa', 'adresa študenta', 'trim|required|min_length[4]|max_length[50]');
+            $this->form_validation->set_rules('nazov', 'Typ brigády', 'trim|required|min_length[3]|max_length[30]');
             // priprava dat pre vlozenie
             $postData = array(
-                'meno' => $this->input->post('meno'),
-                'priezvisko' => $this->input->post('priezvisko'),
-                'telefon' => $this->input->post('telefon'),
-                'adresa' => $this->input->post('adresa'),
+                'nazov' => $this->input->post('nazov'),
             );
             // validacia zaslanych dat
             if ($this->form_validation->run() == true) {
                 // vlozenie dat
-                $insert = $this->Studenti_model->insert($postData);
+                $insert = $this->TypBrigady_model->insert($postData);
                 if ($insert) {
-                    $this->session->set_userdata('success_msg', 'Študent has been added successfully.');
-                    redirect('/studenti');
+                    $this->session->set_userdata('success_msg', 'Typ brigády has been added successfully.');
+                    redirect('/typ_brigady');
                 } else {
                     $data['error_msg'] = 'Some problems occurred, please try again.';
                 }
             }
         }
         $data['post'] = $postData;
-        $data['title'] = 'Create Študent';
+        $data['title'] = 'Create typ brigády';
         $data['action'] = 'Add';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
-        $this->load->view('študenti/add-edit', $data);
+        $this->load->view('typ_brigady/add-edit', $data);
         $this->load->view('common/footer');
     }
 
@@ -99,39 +93,33 @@ class Studenti extends CI_Controller
     {
         $data = array();
         // ziskanie dat z tabulky
-        $postData = $this->Studenti_model->getRows($id);
+        $postData = $this->TypBrigady_model->getRows($id);
         // zistenie, ci bola zaslana poziadavka na aktualizaciu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('meno', 'meno študenta', 'trim|required|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('priezvisko', 'priezvisko študenta', 'trim|required|min_length[3]|max_length[12]');
-            $this->form_validation->set_rules('telefon', 'telefon študenta', 'trim|required|min_length[10]|max_length[10]');
-            $this->form_validation->set_rules('adresa', 'adresa študenta', 'trim|required|min_length[4]|max_length[50]');
+            $this->form_validation->set_rules('nazov', 'Typ brigády', 'trim|required|min_length[3]|max_length[30]');
             // priprava dat pre aktualizaciu
             $postData = array(
-                'meno' => $this->input->post('meno'),
-                'priezvisko' => $this->input->post('priezvisko'),
-                'telefon' => $this->input->post('telefon'),
-                'adresa' => $this->input->post('adresa'),
+                'nazov' => $this->input->post('nazov'),
             );
             // validacia zaslanych dat
             if ($this->form_validation->run() == true) {
                 // aktualizacia dat
-                $update = $this->Studenti_model->update($postData, $id);
+                $update = $this->TypBrigady_model->update($postData, $id);
                 if ($update) {
-                    $this->session->set_userdata('success_msg', 'Študent has been updated successfully.');
-                    redirect('/studenti');
+                    $this->session->set_userdata('success_msg', 'Typ brigády has been updated successfully.');
+                    redirect('/typ_brigady');
                 } else {
                     $data['error_msg'] = 'Some problems occurred, please try again.';
                 }
             }
         }
         $data['post'] = $postData;
-        $data['title'] = 'Update Študent';
+        $data['title'] = 'Update typ brigády';
         $data['action'] = 'Edit';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
-        $this->load->view('študenti/add-edit', $data);
+        $this->load->view('typ_brigady/add-edit', $data);
         $this->load->view('common/footer');
     }
 
@@ -141,13 +129,13 @@ class Studenti extends CI_Controller
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu
-            $delete = $this->Studenti_model->delete($id);
+            $delete = $this->TypBrigady_model->delete($id);
             if ($delete) {
-                $this->session->set_userdata('success_msg', 'Študent has been removed successfully.');
+                $this->session->set_userdata('success_msg', 'Typ brigády has been removed successfully.');
             } else {
                 $this->session->set_userdata('error_msg', 'Some problems occurred, please try again.');
             }
         }
-        redirect('/studenti');
+        redirect('/typ_brigady');
     }
 }

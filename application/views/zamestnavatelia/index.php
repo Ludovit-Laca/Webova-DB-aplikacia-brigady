@@ -32,8 +32,15 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
+                    <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
+                    <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -94,9 +101,9 @@
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="25%">Názov</th>
-                                <th width="20%">Telefon</th>
+                                <th width="20%">Telefón</th>
                                 <th width="30%">Email</th>
-                                <th width="15%">Action</th>
+                                <th width="15%">Funkcie</th>
                             </tr>
                             </thead>
                             <tbody id="userData">
@@ -116,12 +123,12 @@
                                         <a href="<?php echo
                                         site_url('zamestnavatelia/delete/' . $zamestnavatel['id_zamestnavatela']); ?>"
                                            class="glyphicon glyphicon-trash"
-                                           onclick="return confirm('Are you sure to delete?')"></a>
+                                           onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
                                     </td>
                                 </tr>
                             <?php endforeach; else: ?>
                                 <tr>
-                                    <td colspan="4">Zamestnavatel(ia) not found......
+                                    <td colspan="4">Nenašiel sa žiadny záznam :(
                                     </td>
                                 </tr>
                             <?php endif; ?>
