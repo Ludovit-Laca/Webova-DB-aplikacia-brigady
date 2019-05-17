@@ -18,10 +18,40 @@ class Home extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->model('Home_model');
+    }
+
+
     public function index()
     {
+        $data = array();
+        //ziskanie sprav zo session
+        if ($this->session->userdata('success_msg')) {
+            $data['success_msg'] = $this->session->userdata('success_msg');
+            $this->session->unset_userdata('success_msg');
+        }
+        if ($this->session->userdata('error_msg')) {
+            $data['error_msg'] = $this->session->userdata('error_msg');
+            $this->session->unset_userdata('error_msg');
+        }
+        $data['help'] = json_encode($this->Home_model->record_count_per_user_array());
+        $data['pocet'] = $this->Home_model->record_count();
+        $data['studenti'] = $this->Home_model->record_count_studenti();
+        $data['brigady'] = $this->Home_model->record_count_brigady();
+        $data['zamestnavatelia'] = $this->Home_model->record_count_zamestnavatelia();
+        $data['typ_brigady'] = $this->Home_model->record_count_typ_brigady();
         $this->load->view('common/header');
-        $this->load->view('index');
-        $this->load->view('common/footer');
+        $this->load->view('index', $data);
+        $this->load->view('common/footer', $data);
+    }
+
+    public function data() {
+        echo json_encode($this->Home_model->record_count_per_user_array());
     }
 }

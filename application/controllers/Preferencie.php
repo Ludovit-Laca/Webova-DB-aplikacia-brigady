@@ -2,18 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: lacal
- * Date: 27.4.2019
- * Time: 18:43
+ * Date: 13.5.2019
+ * Time: 18:09
  */
 
-class Zamestnavatelia extends CI_Controller
+class Preferencie extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->load->model('Zamestnavatelia_model');
+        $this->load->model('Preferencie_model');
+    }
+
+    public function data() {
+        print_r($this->Preferencie_model->record_count_per_user_array()) ;
     }
 
     public function index()
@@ -28,28 +32,29 @@ class Zamestnavatelia extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $data['zamestnavatelia'] = $this->Zamestnavatelia_model->getRows();
-        $data['title'] = 'Zamestnavatelia List';
-        //nahratie zoznamu zamestnancov
-         $this->load->view('common/header', $data);
-        $this->load->view('zamestnavatelia/index', $data);
-         $this->load->view('common/footer');
+        $data['preferencie'] = $this->Preferencie_model->getRows();
+        $data['pocet'] = $this->Preferencie_model->record_count ();
+        $data['title'] = 'Preferencie List';
+        //nahratie zoznamu preferencií
+        $this->load->view('common/header', $data);
+        $this->load->view('preferencie/index', $data);
+        $this->load->view('common/footer');
     }
 
-    // Zobrazenie detailu o zamestnavatelovi
+    // Zobrazenie detailu o preferenciach
     public function view($id)
     {
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
-            $data['zamestnavatelia'] = $this->Zamestnavatelia_model->getRows($id);
-            $data['title'] = $data['zamestnavatelia']['nazov'];
+            $data['preferencie'] = $this->Preferencie_model->getRows($id);
+            $data['title'] = $data['preferencie']['id_preferencie'];
             // nahratie detailu zaznamu
             $this->load->view('common/header', $data);
-            $this->load->view('zamestnavatelia/view', $data);
+            $this->load->view('preferencie/view', $data);
             $this->load->view('common/footer');
         } else {
-            redirect('/zamestnavatelia');
+            redirect('/preferencie');
 
         }
     }
@@ -62,35 +67,35 @@ class Zamestnavatelia extends CI_Controller
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-
-
-            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'trim|required|min_length[4]|max_length[30]');
-            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'trim|required|min_length[10]|max_length[10]');
-            $this->form_validation->set_rules('email', 'email zamestnavatela', 'required');
+            $this->form_validation->set_rules('studenti_id_studenta', 'meno študenta', 'required');
+            $this->form_validation->set_rules('typ_brigady_id_typu', 'názov brigády', 'required');
             // priprava dat pre vlozenie
             $postData = array(
-                'nazov' => $this->input->post('nazov'),
-                'telefon' => $this->input->post('telefon'),
-                'email' => $this->input->post('email'),
+                'studenti_id_studenta' => $this->input->post('studenti_id_studenta'),
+                'typ_brigady_id_typu' => $this->input->post('typ_brigady_id_typu'),
             );
             // validacia zaslanych dat
             if ($this->form_validation->run() == true) {
                 // vlozenie dat
-                $insert = $this->Zamestnavatelia_model->insert($postData);
+                $insert = $this->Preferencie_model->insert($postData);
                 if ($insert) {
-                    $this->session->set_userdata('success_msg', 'Zamestnavatel has been added successfully.');
-                    redirect('/zamestnavatelia');
+                    $this->session->set_userdata('success_msg', 'Preferencia has been added successfully.');
+                    redirect('/preferencie');
                 } else {
                     $data['error_msg'] = 'Some problems occurred, please try again.';
                 }
             }
         }
+        $data['users'] = $this->Preferencie_model->get_users_dropdown();
+        $data['users_selected'] = '';
+        $data['brigady'] = $this->Preferencie_model->get_brigady_dropdown();
+        $data['brigady_selected'] = '';
         $data['post'] = $postData;
-        $data['title'] = 'Create Zamestnavatel';
+        $data['title'] = 'Create preferencia';
         $data['action'] = 'Add';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
-        $this->load->view('zamestnavatelia/add-edit', $data);
+        $this->load->view('preferencie/add-edit', $data);
         $this->load->view('common/footer');
     }
 
@@ -99,37 +104,39 @@ class Zamestnavatelia extends CI_Controller
     {
         $data = array();
         // ziskanie dat z tabulky
-        $postData = $this->Zamestnavatelia_model->getRows($id);
+        $postData = $this->Preferencie_model->getRows($id);
         // zistenie, ci bola zaslana poziadavka na aktualizaciu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('nazov', 'nazov zamestnavatela', 'trim|required|min_length[4]|max_length[30]');
-            $this->form_validation->set_rules('telefon', 'telefon zamestnavatela', 'trim|required|min_length[10]|max_length[10]');
-            $this->form_validation->set_rules('email', 'email zamestnavatela', 'required');
+            $this->form_validation->set_rules('studenti_id_studenta', 'meno študenta', 'required');
+            $this->form_validation->set_rules('typ_brigady_id_typu', 'názov brigády', 'required');
             // priprava dat pre aktualizaciu
             $postData = array(
-                'nazov' => $this->input->post('nazov'),
-                'telefon' => $this->input->post('telefon'),
-                'email' => $this->input->post('email'),
+                'studenti_id_studenta' => $this->input->post('studenti_id_studenta'),
+                'typ_brigady_id_typu' => $this->input->post('typ_brigady_id_typu'),
             );
             // validacia zaslanych dat
             if ($this->form_validation->run() == true) {
                 // aktualizacia dat
-                $update = $this->Zamestnavatelia_model->update($postData, $id);
+                $update = $this->Preferencie_model->update($postData, $id);
                 if ($update) {
-                    $this->session->set_userdata('success_msg', 'Zamestnavatel has been updated successfully.');
-                    redirect('/zamestnavatelia');
+                    $this->session->set_userdata('success_msg', 'Preferencia has been updated successfully.');
+                    redirect('/preferencie');
                 } else {
                     $data['error_msg'] = 'Some problems occurred, please try again.';
                 }
             }
         }
+        $data['users'] = $this->Preferencie_model->get_users_dropdown();
+        $data['users_selected'] = $postData['studenti_id_studenta'];
+        $data['brigady'] = $this->Preferencie_model->get_brigady_dropdown();
+        $data['brigady_selected'] = $postData['typ_brigady_id_typu'];
         $data['post'] = $postData;
-        $data['title'] = 'Update Zamestnavatel';
+        $data['title'] = 'Update preferencia';
         $data['action'] = 'Edit';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
-        $this->load->view('zamestnavatelia/add-edit', $data);
+        $this->load->view('preferencie/add-edit', $data);
         $this->load->view('common/footer');
     }
 
@@ -139,13 +146,13 @@ class Zamestnavatelia extends CI_Controller
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu
-            $delete = $this->Zamestnavatelia_model->delete($id);
+            $delete = $this->Preferencie_model->delete($id);
             if ($delete) {
-                $this->session->set_userdata('success_msg', 'Zamestnavatel has been removed successfully.');
+                $this->session->set_userdata('success_msg', 'Preferencia has been removed successfully.');
             } else {
                 $this->session->set_userdata('error_msg', 'Some problems occurred, please try again.');
             }
         }
-        redirect('/zamestnavatelia');
+        redirect('/preferencie');
     }
 }

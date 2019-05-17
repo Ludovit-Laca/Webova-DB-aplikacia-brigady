@@ -32,10 +32,10 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
+                    <li class="active" ><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
                     <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
                     <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
                     <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
@@ -77,12 +77,12 @@
     <section class="content-header">
         <h1>
             Tabuľka
-            <small>Zamestnávatelia</small>
+            <small>Brigády študentov</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-table"></i>Domov</a></li>
             <li><a href="#">Tabuľky</a></li>
-            <li class="active">Zamestnávatelia</li>
+            <li class="active">Brigády študentov</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -91,37 +91,43 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="panel-heading">Zamestnávatelia <a href="<?php echo
-                            site_url('zamestnavatelia/add/'); ?>" class="glyphicon glyphicon-plus pull-right"></a></h3>
+                        <h3 class="panel-heading">Brigády študentov<a href="<?php echo
+                            site_url('studenti_has_brigady/add/'); ?>" class="glyphicon glyphicon-plus pull-right"></a></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="25%">Názov</th>
-                                <th width="20%">Telefón</th>
-                                <th width="30%">Email</th>
+                                <th width="5%">ID</th>
+                                <th width="15%">Dátum nástupu</th>
+                                <th width="15%">Dátum ukončenia</th>
+                                <th width="10%">Hodinová sadzba študenta</th>
+                                <th width="10%">Odpracované hodiny</th>
+                                <th width="15%">Meno študenta</th>
+                                <th width="15%">Názov brigády</th>
                                 <th width="15%">Funkcie</th>
                             </tr>
                             </thead>
                             <tbody id="userData">
-                            <?php if (!empty($zamestnavatelia)): foreach ($zamestnavatelia as $zamestnavatel): ?>
+                            <?php if (!empty($studenti_has_brigady)): foreach ($studenti_has_brigady as $sbrigady): ?>
                                 <tr>
-                                    <td><?php echo '#' . $zamestnavatel['id_zamestnavatela']; ?></td>
-                                    <td><?php echo $zamestnavatel['nazov']; ?></td>
-                                    <td><?php echo $zamestnavatel['telefon']; ?></td>
-                                    <td><?php echo $zamestnavatel['email']; ?></td>
+                                    <td><?php echo '#' . $sbrigady['id_študenti_has_brigady']; ?></td>
+                                    <td><?php echo $sbrigady['odkedy']; ?></td>
+                                    <td><?php echo $sbrigady['dokedy']; ?></td>
+                                    <td><?php echo $sbrigady['hodinova_sadzba_studenta']; ?></td>
+                                    <td><?php echo $sbrigady['odpracovane_hodiny']; ?></td>
+                                    <td><?php echo $sbrigady['fullname']; ?></td>
+                                    <td><?php echo $sbrigady['bnazov']; ?></td>
                                     <td>
                                         <a href="<?php echo
-                                        site_url('zamestnavatelia/view/' . $zamestnavatel['id_zamestnavatela']); ?>"
+                                        site_url('studenti_has_brigady/view/' . $sbrigady['id_študenti_has_brigady']); ?>"
                                            class="glyphicon glyphicon-eye-open"></a>
                                         <a href="<?php echo
-                                        site_url('zamestnavatelia/edit/' . $zamestnavatel['id_zamestnavatela']); ?>"
+                                        site_url('studenti_has_brigady/edit/' . $sbrigady['id_študenti_has_brigady']); ?>"
                                            class="glyphicon glyphicon-edit"></a>
                                         <a href="<?php echo
-                                        site_url('zamestnavatelia/delete/' . $zamestnavatel['id_zamestnavatela']); ?>"
+                                        site_url('studenti_has_brigady/delete/' . $sbrigady['id_študenti_has_brigady']); ?>"
                                            class="glyphicon glyphicon-trash"
                                            onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
                                     </td>
@@ -144,6 +150,5 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-
 </div>
 <!-- /.content-wrapper -->
