@@ -98,10 +98,30 @@
         xkey: 'datum',
         // A list of names of data record attributes that contain y-values.
         ykeys: ['counts'],
+        barColors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
         labels: ['counts'],
         resize: true
+    });
+</script>
+<script>
+    Morris.Donut({
+        element: 'myfirstdonut',
+        data: <?php echo $donut; ?>,
+        colors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a']
+    });
+</script>
+<script>
+    Morris.Line({
+        element: 'line-example',
+        data: <?php echo $linechart; ?>,
+        xkey: 'Rok',
+        ykeys: ['plat1'],
+        labels: ['Priemerná mzda'],
+        behaveLikeLine: true,
+        resize: true,
+        lineColors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a']
     });
 </script>
 </body>

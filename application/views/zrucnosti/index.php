@@ -88,11 +88,11 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
+            <div class="col-md-12">
+                <div class="box box-warning">
                     <div class="box-header">
                         <h3 class="panel-heading">Zručnosti <a href="<?php echo
-                            site_url('zrucnosti/add/'); ?>" class="glyphicon glyphicon-plus pull-right"></a></h3>
+                            site_url('zrucnosti/add/'); ?>" class="glyphicon glyphicon-plus pull-right" style="color: #f39c12"></a></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -114,13 +114,13 @@
                                     <td>
                                         <a href="<?php echo
                                         site_url('zrucnosti/view/' . $zrucnost['id_zrucnosti']); ?>"
-                                           class="glyphicon glyphicon-eye-open"></a>
+                                           class="glyphicon glyphicon-eye-open" style="color: #f39c12"></a>
                                         <a href="<?php echo
                                         site_url('zrucnosti/edit/' . $zrucnost['id_zrucnosti']); ?>"
-                                           class="glyphicon glyphicon-edit"></a>
+                                           class="glyphicon glyphicon-edit" style="color: #f39c12"></a>
                                         <a href="<?php echo
                                         site_url('zrucnosti/delete/' . $zrucnost['id_zrucnosti']); ?>"
-                                           class="glyphicon glyphicon-trash"
+                                           class="glyphicon glyphicon-trash" style="color: #f39c12"
                                            onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
                                     </td>
                                 </tr>

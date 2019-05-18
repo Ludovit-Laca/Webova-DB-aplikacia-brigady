@@ -99,7 +99,7 @@ class Studenti_has_brigady extends CI_Controller
         $data['brigady_selected'] = '';
         $data['post'] = $postData;
         $data['title'] = 'Create brigáda študenta';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nová študentská brigáda';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('studenti_has_brigady/add-edit', $data);
@@ -148,7 +148,7 @@ class Studenti_has_brigady extends CI_Controller
         $data['brigady_selected'] = $postData['brigady_id_brigady'];
         $data['post'] = $postData;
         $data['title'] = 'Update brigáda študeta';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav študentskú brigádu';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('studenti_has_brigady/add-edit', $data);

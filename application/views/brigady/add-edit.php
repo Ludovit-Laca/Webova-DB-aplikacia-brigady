@@ -102,10 +102,10 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="box box-primary">
+                    <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
-                            brigáda <a href="<?php echo site_url('brigady/'); ?>"
-                                                     class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+                            <a href="<?php echo site_url('brigady/'); ?>"
+                                                     class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
@@ -122,27 +122,39 @@ class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Názov brigády</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="nazov" placeholder="Zadajte názov" value="<?php echo
                                     !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
                                     <?php echo form_error('nazov', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Hodinová sadzba</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
                                     <input type="number" step="0.01" class="form-control"
                                            name="hodinova_sadzba_brigada" placeholder="Hodinová sadzba" value="<?php echo
                                     !empty($post['hodinova_sadzba_brigada']) ? $post['hodinova_sadzba_brigada'] : ''; ?>">
                                     <?php echo form_error('hodinova_sadzba_brigada', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Provízia agentúry</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
                                     <input type="number" step="0.01" class="form-control"
                                            name="provizia_agentury" placeholder="Hodinová sadzba" value="<?php echo
                                     !empty($post['provizia_agentury']) ? $post['provizia_agentury'] : ''; ?>">
                                     <?php echo form_error('provizia_agentury', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Aktuálnosť</label><br />
@@ -154,26 +166,46 @@ class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Popis</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-comment"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="popis" placeholder="Popis" value="<?php echo
                                     !empty($post['popis']) ? $post['popis'] : ''; ?>">
                                     <?php echo form_error('popis', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <?php echo form_label('Názov zamestnávateľa'); ?>
-                                    <?php echo form_dropdown('zamestnavatelia_id_zamestnavatela', $zamestnavatelia, $zamestnavatel_selected, 'class="form-control"'); ?>
-                                </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clipboard"></i>
+                                        </div>
+                                    <?php echo form_dropdown('zamestnavatelia_id_zamestnavatela', $users, $users_selected, 'class="form-control"'); ?>
+                                    </div></div>
                                 <div class="form-group">
                                     <?php echo form_label('Typ brigády'); ?>
-                                    <?php echo form_dropdown('typ_brigady_id_typu', $TypBrigady, $TypBrigady_selected, 'class="form-control"'); ?>
-                                </div>
-                                <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Odoslať"/>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    <?php echo form_dropdown('typ_brigady_id_typu', $brigady, $brigady_selected, 'class="form-control"'); ?>
+                                    </div> </div>
+                                <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>
                         </div>
                     </div>
 
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="panel-heading">
+                            Počet brigád</div>
+                        <div class="box-header">
+                            <div id="myfirstchart" style="height: 250px;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

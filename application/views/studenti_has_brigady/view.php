@@ -94,10 +94,11 @@
 
 
             <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Brigády študentov<a href="<?php
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                    <div class="panel-heading">Detaily študentskej brigády<a href="<?php
                         echo site_url('studenti_has_brigady/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
+pull-right" style="color: #f39c12"></a></div>
                     <div class="panel-body">
                         <div class="form-group">
                             <label>Dátum nástupu:</label>
@@ -127,7 +128,7 @@ pull-right"></a></div>
                             <label>Názov brigády:</label>
                             <p><?php echo !empty($studenti_has_brigady['bnazov']) ? $studenti_has_brigady['bnazov'] : ''; ?> </p>
                         </div>
-
+                    </div>
                     </div>
                 </div>
             </div>

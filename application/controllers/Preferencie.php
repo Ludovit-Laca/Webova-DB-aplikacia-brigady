@@ -14,6 +14,7 @@ class Preferencie extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('Preferencie_model');
+        $this->load->model('Home_model');
     }
 
     public function data() {
@@ -47,6 +48,7 @@ class Preferencie extends CI_Controller
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
+            $data['donut'] = json_encode($this->Home_model->record_count_per_preferencie_array());
             $data['preferencie'] = $this->Preferencie_model->getRows($id);
             $data['title'] = $data['preferencie']['id_preferencie'];
             // nahratie detailu zaznamu
@@ -86,13 +88,14 @@ class Preferencie extends CI_Controller
                 }
             }
         }
+        $data['donut'] = json_encode($this->Home_model->record_count_per_preferencie_array());
         $data['users'] = $this->Preferencie_model->get_users_dropdown();
         $data['users_selected'] = '';
         $data['brigady'] = $this->Preferencie_model->get_brigady_dropdown();
         $data['brigady_selected'] = '';
         $data['post'] = $postData;
         $data['title'] = 'Create preferencia';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nová preferencia študenta';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('preferencie/add-edit', $data);
@@ -127,13 +130,14 @@ class Preferencie extends CI_Controller
                 }
             }
         }
+        $data['donut'] = json_encode($this->Home_model->record_count_per_preferencie_array());
         $data['users'] = $this->Preferencie_model->get_users_dropdown();
         $data['users_selected'] = $postData['studenti_id_studenta'];
         $data['brigady'] = $this->Preferencie_model->get_brigady_dropdown();
         $data['brigady_selected'] = $postData['typ_brigady_id_typu'];
         $data['post'] = $postData;
         $data['title'] = 'Update preferencia';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav preferenciu študenta';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('preferencie/add-edit', $data);

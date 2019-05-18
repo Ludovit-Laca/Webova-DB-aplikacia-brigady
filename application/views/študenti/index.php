@@ -88,11 +88,11 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
+            <div class="col-md-12">
+                <div class="box box-warning">
                     <div class="box-header">
                         <h3 class="panel-heading">Študenti <a href="<?php echo
-                            site_url('studenti/add/'); ?>" class="glyphicon glyphicon-plus pull-right"></a></h3>
+                            site_url('studenti/add/'); ?>" class="glyphicon glyphicon-plus pull-right" style="color: #f39c12"></a></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -118,13 +118,13 @@
                                     <td>
                                         <a href="<?php echo
                                         site_url('studenti/view/' . $student['id_študenta']); ?>"
-                                           class="glyphicon glyphicon-eye-open"></a>
+                                           class="glyphicon glyphicon-eye-open" style="color: #f39c12"></a>
                                         <a href="<?php echo
                                         site_url('studenti/edit/' . $student['id_študenta']); ?>"
-                                           class="glyphicon glyphicon-edit"></a>
+                                           class="glyphicon glyphicon-edit" style="color: #f39c12"></a>
                                         <a href="<?php echo
                                         site_url('studenti/delete/' . $student['id_študenta']); ?>"
-                                           class="glyphicon glyphicon-trash"
+                                           class="glyphicon glyphicon-trash" style="color: #f39c12"
                                            onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
                                     </td>
                                 </tr>

@@ -102,31 +102,38 @@
                 ?>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="panel panel-default">
+                <div class="col-md-6">
+                    <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
-                            zručnosť<a href="<?php echo site_url('zrucnosti/'); ?>"
-                                            class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+                            <a href="<?php echo site_url('zrucnosti/'); ?>"
+                                            class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
                                     <label for="title">Názov</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-book"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="nazov" placeholder="Zadajte názov" value="<?php echo
                                     !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
                                     <?php echo form_error('nazov', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Popis</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-comment"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="popis" placeholder="Zadajte popis" value="<?php echo
                                     !empty($post['popis']) ? $post['popis'] : ''; ?>">
                                     <?php echo form_error('popis', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?></div>
                                 </div>
-                                <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Odoslať"/>
+                                <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>
                         </div>
                     </div>

@@ -38,11 +38,31 @@ class Home_model extends CI_Model
         return $this->db->count_all("typ_brigady");
     }
 
-    //ukazka group_by pre tabulku a graf, vystup je pole
+    // pole pre naplnenie grafu - Počet brigád
     public function record_count_per_user_array() {
         $this->db->select('MONTHNAME(datum) as datum, COUNT(datum) AS counts');
         $this->db->from('brigady');
         $this->db->group_by('MONTH(datum)');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    // pole pre naplnenie grafu - Študenti najviac hľadajú
+    public function record_count_per_preferencie_array() {
+        $this->db->select('nazov label, COUNT(*) value');
+        $this->db->from('typ_brigady');
+        $this->db->join('preferencie','preferencie.typ_brigady_id_typu = typ_brigady.id_typu');
+        $this->db->group_by('nazov');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    // pole pre naplnenie grafu - Priemerná hodinová sadzba pre rôzne typy brigád
+    public function record_count_per_plat_array() {
+        $this->db->select('YEAR(brigady.datum) AS Rok, AVG(študenti_has_brigady.hodinova_sadzba_studenta * študenti_has_brigady.odpracovane_hodiny ) AS plat1');
+        $this->db->from('brigady');
+        $this->db->join('študenti_has_brigady','brigady_id_brigady = brigady.id_brigady');
+        $this->db->group_by('Rok');
         $query = $this->db->get();
         return $query->result_array();
     }

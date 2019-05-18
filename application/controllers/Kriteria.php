@@ -87,7 +87,7 @@ class Kriteria extends CI_Controller
         $data['brigady_selected'] = '';
         $data['post'] = $postData;
         $data['title'] = 'Create zručnosť';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nové kritérium';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('kriteria/add-edit', $data);
@@ -128,7 +128,7 @@ class Kriteria extends CI_Controller
         $data['brigady_selected'] = $postData['zručnosti_id_zručnosti'];
         $data['post'] = $postData;
         $data['title'] = 'Update kritérium';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav kritérium';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('kriteria/add-edit', $data);

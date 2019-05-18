@@ -101,47 +101,62 @@
                 ?>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="panel panel-default">
+                <div class="col-md-6">
+                    <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
-                            študent <a href="<?php echo site_url('studenti/'); ?>"
-                                        class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+                            <a href="<?php echo site_url('studenti/'); ?>"
+                                        class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
                                     <label for="title">Meno</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="meno" placeholder="Zadajte meno" value="<?php echo
                                     !empty($post['meno']) ? $post['meno'] : ''; ?>">
                                     <?php echo form_error('meno', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Priezvisko</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="priezvisko" placeholder="Zadajte priezvisko" value="<?php echo
                                     !empty($post['priezvisko']) ? $post['priezvisko'] : ''; ?>">
                                     <?php echo form_error('priezvisko', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Telefón</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
                                     <input type="number" class="form-control"
                                            name="telefon" placeholder="Zadajte telefon" value="<?php echo
                                     !empty($post['telefon']) ? $post['telefon'] : ''; ?>">
                                     <?php echo form_error('telefon', '<p class="helpblock
-text-danger">', '</p>'); ?>
+text-danger">', '</p>'); ?> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Adresa</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-address-book"></i>
+                                        </div>
                                     <input type="text" class="form-control"
                                            name="adresa" placeholder="Zadajte adresu" value="<?php echo
                                     !empty($post['adresa']) ? $post['adresa'] : ''; ?>">
                                     <?php echo form_error('adresa', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?> </div>
                                 </div>
-                                <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Odoslať"/>
+                                <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>
                         </div>
                     </div>

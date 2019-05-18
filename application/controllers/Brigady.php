@@ -14,6 +14,7 @@ class Brigady extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('Brigady_model');
+        $this->load->model('Home_model');
     }
 
     public function index()
@@ -42,6 +43,7 @@ class Brigady extends CI_Controller
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
+            $data['help'] = json_encode($this->Home_model->record_count_per_user_array());
             $data['brigady'] = $this->Brigady_model->getRows($id);
             $data['title'] = $data['brigady']['id_brigady'];
             // nahratie detailu zaznamu
@@ -93,13 +95,14 @@ class Brigady extends CI_Controller
                 }
             }
         }
-        $data['zamestnavatelia'] = $this->Brigady_model->get_zamestnavatelia_dropdown();
-        $data['zamestnavatel_selected'] = '';
-        $data['TypBrigady'] = $this->Brigady_model->get_TypBrigady_dropdown();
-        $data['TypBrigady_selected'] = '';
+        $data['help'] = json_encode($this->Home_model->record_count_per_user_array());
+        $data['users'] = $this->Brigady_model->get_users_dropdown();
+        $data['users_selected'] = '';
+        $data['brigady'] = $this->Brigady_model->get_brigady_dropdown();
+        $data['brigady_selected'] = '';
         $data['post'] = $postData;
         $data['title'] = 'Create brigada';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nová brigáda';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('brigady/add-edit', $data);
@@ -146,13 +149,14 @@ class Brigady extends CI_Controller
                 }
             }
         }
-        $data['zamestnavatelia'] = $this->Brigady_model->get_zamestnavatelia_dropdown();
-        $data['zamestnavatel_selected'] = 'zamestnavatelia_id_zamestnavatela';
-        $data['TypBrigady'] = $this->Brigady_model->get_TypBrigady_dropdown();
-        $data['TypBrigady_selected'] = 'typ_brigady_id_typu';
+        $data['help'] = json_encode($this->Home_model->record_count_per_user_array());
+        $data['users'] = $this->Brigady_model->get_users_dropdown();
+        $data['users_selected'] = $postData['zamestnavatelia_id_zamestnavatela'];
+        $data['brigady'] = $this->Brigady_model->get_brigady_dropdown();
+        $data['brigady_selected'] = $postData['typ_brigady_id_typu'];
         $data['post'] = $postData;
         $data['title'] = 'Update brigada';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav brigádu';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('brigady/add-edit', $data);

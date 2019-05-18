@@ -284,6 +284,7 @@ th {
 }
 .glyphicon-plus:before {
   content: "\002b";
+  color: #f39c12;
 }
 .glyphicon-euro:before,
 .glyphicon-eur:before {
@@ -567,6 +568,7 @@ th {
 }
 .glyphicon-arrow-left:before {
   content: "\e091";
+  color: #f39c12;
 }
 .glyphicon-arrow-right:before {
   content: "\e092";

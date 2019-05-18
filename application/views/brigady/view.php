@@ -94,10 +94,11 @@
 
 
             <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Brigády<a href="<?php
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                    <div class="panel-heading">Detaily brigády<a href="<?php
                         echo site_url('brigady/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
+pull-right" style="color: #f39c12"></a></div>
                     <div class="panel-body">
                         <div class="form-group">
                             <label>Dátum platosti</label>
@@ -137,7 +138,16 @@ pull-right"></a></div>
                             <label>Typ brigády:</label>
                             <p><?php echo !empty($brigady['tmeno']) ? $brigady['tmeno'] : ''; ?> </p>
                         </div>
-
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="panel-heading">
+                            Počet brigád</div>
+                        <div class="box-header">
+                            <div id="myfirstchart" style="height: 250px;"></div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -78,12 +78,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            Domov
+            <small>Úvod</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Domov</a></li>
+            <li class="active">Úvod</li>
         </ol>
     </section>
 
@@ -158,8 +158,30 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-            <div id="myfirstchart" style="height: 250px;"></div>
-
+            <div class="col-md-6">
+                <div class="box box-warning">
+                    <h3 class="box-title" style="text-align: center">Počet brigád</h3>
+                    <div class="box-header">
+                        <div id="myfirstchart" style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box box-warning">
+                    <h3 class="box-title" style="text-align: center">Študenti najviac hľadajú</h3>
+                    <div class="box-header">
+                        <div id="myfirstdonut" style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <h3 class="box-title" style="text-align: center">Priemerná mzda brigádnikov za rok</h3>
+                    <div class="box-header">
+                        <div id="line-example" style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.row (main row) -->
     </section>

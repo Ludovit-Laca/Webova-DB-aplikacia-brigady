@@ -101,23 +101,30 @@
                 ?>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="panel panel-default">
+                <div class="col-md-6">
+                    <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
-                            zručnosť študenta <a href="<?php echo site_url('studenti_has_zrucnosti/'); ?>"
-                                         class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+                            <a href="<?php echo site_url('studenti_has_zrucnosti/'); ?>"
+                                         class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
                                     <?php echo form_label('Meno študenta'); ?>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
                                     <?php echo form_dropdown('studenti_id_studenta', $users, $users_selected, 'class="form-control"'); ?>
-                                </div>
+                                    </div></div>
                                 <div class="form-group">
                                     <?php echo form_label('Zručnosť študenta'); ?>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-book"></i>
+                                        </div>
                                     <?php echo form_dropdown('zrucnosti_id_zrucnosti', $brigady, $brigady_selected, 'class="form-control"'); ?>
-                                </div>
-                                <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Odoslať"/>
+                                    </div></div>
+                                <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>
                         </div>
                     </div>

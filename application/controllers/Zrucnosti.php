@@ -83,7 +83,7 @@ class Zrucnosti extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Create Zručnosť';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nová zručnosť';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('zrucnosti/add-edit', $data);
@@ -120,7 +120,7 @@ class Zrucnosti extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Update Zručnosť';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav zručnosť';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('zrucnosti/add-edit', $data);

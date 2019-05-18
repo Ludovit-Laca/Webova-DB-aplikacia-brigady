@@ -43,7 +43,7 @@ class Studenti_has_zrucnosti extends CI_Controller
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
             $data['studenti_has_zrucnosti'] = $this->Studenti_has_zrucnosti_model->getRows($id);
-            $data['title'] = $data['studenti_has_zrucnosti']['id_studenti_has_zrucnosti'];
+            $data['title'] = $data['studenti_has_zrucnosti']['id_študenti_has_zručnosti'];
             // nahratie detailu zaznamu
             $this->load->view('common/header', $data);
             $this->load->view('studenti_has_zrucnosti/view', $data);
@@ -87,7 +87,7 @@ class Studenti_has_zrucnosti extends CI_Controller
         $data['brigady_selected'] = '';
         $data['post'] = $postData;
         $data['title'] = 'Create zručnosť študenta';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nová zručnosť študenta';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('studenti_has_zrucnosti/add-edit', $data);
@@ -128,7 +128,7 @@ class Studenti_has_zrucnosti extends CI_Controller
         $data['brigady_selected'] = $postData['zrucnosti_id_zrucnosti'];
         $data['post'] = $postData;
         $data['title'] = 'Update zručnosť študenta';
-        $data['action'] = 'Uprav';
+        $data['action'] = 'Uprav zručnosť študenta';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('studenti_has_zrucnosti/add-edit', $data);

@@ -32,15 +32,20 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a>
+                    </li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
-                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády
+                            študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a>
+                    </li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti
+                            študentov</a></li>
                     <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
-                    <li class="active" ><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
+                    <li class="active"><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a>
+                    </li>
                 </ul>
             </li>
             <li class="treeview">
@@ -85,29 +90,25 @@
             <li class="active">Kritéria</li>
         </ol>
     </section>
-
-
     <!-- Main content -->
     <section class="content">
         <div class="box-header">
-
-
-
             <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Detaily kritéria<a href="<?php
-                        echo site_url('kriteria/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label>Názov brigády:</label>
-                            <p><?php echo !empty($kriteria['brNazov'])?$kriteria['brNazov']:''; ?></p>
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="panel-heading">Detaily kritéria<a href="<?php
+                            echo site_url('kriteria/'); ?>" class="glyphicon glyphicon-arrow-left
+pull-right" style="color: #f39c12"></a></div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Názov brigády:</label>
+                                <p><?php echo !empty($kriteria['brNazov']) ? $kriteria['brNazov'] : ''; ?></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Potrebná zručnosť:</label>
+                                <p><?php echo !empty($kriteria['zrNazov']) ? $kriteria['zrNazov'] : ''; ?> </p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Potrebná zručnosť:</label>
-                            <p><?php echo !empty($kriteria['zrNazov']) ? $kriteria['zrNazov'] : ''; ?> </p>
-                        </div>
-
                     </div>
                 </div>
             </div>

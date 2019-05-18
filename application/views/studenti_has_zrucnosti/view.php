@@ -37,8 +37,8 @@
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
                     <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
                     <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
-                    <li class="active"><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
+                    <li class="active"><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
@@ -77,68 +77,37 @@
     <section class="content-header">
         <h1>
             Tabuľka
-            <small>Typ brigády</small>
+            <small>Zručnosti študentov</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-table"></i>Domov</a></li>
             <li><a href="#">Tabuľky</a></li>
-            <li class="active">Typ brigády</li>
+            <li class="active">Zručnosti študentov</li>
         </ol>
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-warning">
-                    <div class="box-header">
-                        <h3 class="panel-heading">Typ brigády <a href="<?php echo
-                            site_url('typ_brigady/add/'); ?>" class="glyphicon glyphicon-plus pull-right" style="color: #f39c12"></a></h3>
+        <div class="box-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="panel-heading">Detaily zručnosti študenta<a href="<?php
+                            echo site_url('studenti_has_zrucnosti/'); ?>" class="glyphicon glyphicon-arrow-left
+pull-right" style="color: #f39c12"></a></div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Meno študenta:</label>
+                                <p><?php echo !empty($studenti_has_zrucnosti['fullname'])?$studenti_has_zrucnosti['fullname']:''; ?></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Názov zručnosti:</label>
+                                <p><?php echo !empty($studenti_has_zrucnosti['zrNazov']) ? $studenti_has_zrucnosti['zrNazov'] : ''; ?> </p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th width="20%">ID</th>
-                                <th width="50%">Typ brigády</th>
-                                <th width="30%">Funkcie</th>
-                            </tr>
-                            </thead>
-                            <tbody id="userData">
-                            <?php if (!empty($typ_brigady)): foreach ($typ_brigady as $tBrigad): ?>
-                                <tr>
-                                    <td><?php echo '#' . $tBrigad['id_typu']; ?></td>
-                                    <td><?php echo $tBrigad['nazov']; ?></td>
-                                    <td>
-                                        <a href="<?php echo
-                                        site_url('typ_brigady/view/' . $tBrigad['id_typu']); ?>"
-                                           class="glyphicon glyphicon-eye-open" style="color: #f39c12"></a>
-                                        <a href="<?php echo
-                                        site_url('typ_brigady/edit/' . $tBrigad['id_typu']); ?>"
-                                           class="glyphicon glyphicon-edit" style="color: #f39c12"></a>
-                                        <a href="<?php echo
-                                        site_url('typ_brigady/delete/' . $tBrigad['id_typu']); ?>"
-                                           class="glyphicon glyphicon-trash" style="color: #f39c12"
-                                           onclick="return confirm('Naozaj chcete vymazať záznam?')"></a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; else: ?>
-                                <tr>
-                                    <td colspan="4">Nenašiel sa žiadny záznam :(
-                                    </td>
-                                </tr>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
+
     </section>
     <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->

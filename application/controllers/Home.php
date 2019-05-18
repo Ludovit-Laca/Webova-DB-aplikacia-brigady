@@ -41,6 +41,8 @@ class Home extends CI_Controller {
             $this->session->unset_userdata('error_msg');
         }
         $data['help'] = json_encode($this->Home_model->record_count_per_user_array());
+        $data['donut'] = json_encode($this->Home_model->record_count_per_preferencie_array());
+        $data['linechart'] = json_encode($this->Home_model->record_count_per_plat_array());
         $data['pocet'] = $this->Home_model->record_count();
         $data['studenti'] = $this->Home_model->record_count_studenti();
         $data['brigady'] = $this->Home_model->record_count_brigady();

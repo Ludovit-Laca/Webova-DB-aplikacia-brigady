@@ -94,10 +94,11 @@
 
 
             <div class="row">
-                <div class="panel panel-default">
+                <div class="col-md-6">
+                    <div class="box box-warning">
                     <div class="panel-heading">Detaily študenta<a href="<?php
                         echo site_url('studenti/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
+pull-right" style="color: #f39c12"></a></div>
                     <div class="panel-body">
                         <div class="form-group">
                             <label>Meno:</label>
@@ -120,6 +121,7 @@ pull-right"></a></div>
                             <p><?php echo
                                 !empty($studenti['adresa']) ? $studenti['adresa'] : ''; ?> </p>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

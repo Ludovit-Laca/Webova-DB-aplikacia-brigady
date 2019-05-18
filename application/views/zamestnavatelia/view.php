@@ -32,12 +32,16 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li class="active"><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a>
+                    </li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
-                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády
+                            študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a>
+                    </li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti
+                            študentov</a></li>
                     <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
@@ -92,12 +96,12 @@
         <div class="box-header">
 
 
-
-                <div class="row">
-                    <div class="panel panel-default">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-warning">
                         <div class="panel-heading">Detaily zamestnávateľa<a href="<?php
                             echo site_url('zamestnavatelia/'); ?>" class="glyphicon glyphicon-arrow-left
-pull-right"></a></div>
+pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <label>Názov:</label>
@@ -118,7 +122,8 @@ pull-right"></a></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
     </section>
     <!-- /.content -->
-            </div>
+</div>

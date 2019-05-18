@@ -87,7 +87,7 @@ class Studenti extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Create Študent';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nový študent';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('študenti/add-edit', $data);
@@ -128,7 +128,7 @@ class Studenti extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Update Študent';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav študenta';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('študenti/add-edit', $data);

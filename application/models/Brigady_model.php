@@ -59,8 +59,8 @@ class Brigady_model extends CI_Model
         return $delete?true:false;
     }
 
-    //  naplnenie selectu z tabulky zamestnavatelia
-    public function get_zamestnavatelia_dropdown($id = ""){
+    //  naplnenie selectu z tabulky
+    public function get_users_dropdown($id = ""){
         $this->db->order_by('nazov')
             ->select('id_zamestnavatela, nazov')
             ->from('zamestnavatelia');
@@ -71,13 +71,13 @@ class Brigady_model extends CI_Model
             {
                 $dropdownlist[$dropdown->id_zamestnavatela] = $dropdown->nazov;
             }
-            $dropdownlist[''] = 'Vyberte zamestnávateľa ... ';
+            $dropdownlist[''] = 'Vyberte študenta ... ';
             return $dropdownlist;
         }
     }
 
     //  naplnenie selectu z tabulky typ_brigady
-    public function get_TypBrigady_dropdown($id = ""){
+    public function get_brigady_dropdown($id = ""){
         $this->db->order_by('nazov')
             ->select('id_typu, nazov')
             ->from('typ_brigady');

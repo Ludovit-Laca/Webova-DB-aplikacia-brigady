@@ -87,7 +87,7 @@ class Zamestnavatelia extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Create Zamestnavatel';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nový zamestnávateľ';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/add-edit', $data);
@@ -126,7 +126,7 @@ class Zamestnavatelia extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Update Zamestnavatel';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav zamestnávateľa';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/add-edit', $data);

@@ -81,7 +81,7 @@ class Typ_brigady extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Create typ brigády';
-        $data['action'] = 'Add';
+        $data['action'] = 'Nový typ brigády';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('typ_brigady/add-edit', $data);
@@ -116,7 +116,7 @@ class Typ_brigady extends CI_Controller
         }
         $data['post'] = $postData;
         $data['title'] = 'Update typ brigády';
-        $data['action'] = 'Edit';
+        $data['action'] = 'Uprav typ brigády';
         // zobrazenie formulara pre vlozenie a editaciu dat
         $this->load->view('common/header', $data);
         $this->load->view('typ_brigady/add-edit', $data);

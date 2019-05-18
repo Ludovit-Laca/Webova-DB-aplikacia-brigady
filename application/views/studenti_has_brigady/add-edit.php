@@ -32,12 +32,16 @@
                 </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a></li>
+                    <li><a href="/brigady/index.php/zamestnavatelia"><i class="fa fa-circle-o"></i>Zamestnávatelia</a>
+                    </li>
                     <li><a href="/brigady/index.php/studenti"><i class="fa fa-circle-o"></i>Študenti</a></li>
                     <li><a href="/brigady/index.php/brigady"><i class="fa fa-circle-o"></i>Brigády</a></li>
-                    <li class="active" ><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády študentov</a></li>
-                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a></li>
-                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti študentov</a></li>
+                    <li class="active"><a href="/brigady/index.php/studenti_has_brigady"><i class="fa fa-circle-o"></i>Brigády
+                            študentov</a></li>
+                    <li><a href="/brigady/index.php/preferencie"><i class="fa fa-circle-o"></i>Preferencie študentov</a>
+                    </li>
+                    <li><a href="/brigady/index.php/studenti_has_zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti
+                            študentov</a></li>
                     <li><a href="/brigady/index.php/typ_brigady"><i class="fa fa-circle-o"></i>Typ brigády</a></li>
                     <li><a href="/brigady/index.php/zrucnosti"><i class="fa fa-circle-o"></i>Zručnosti</a></li>
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
@@ -102,10 +106,10 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="box box-primary">
+                    <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
-                            brigáda študenta <a href="<?php echo site_url('studenti_has_brigady/'); ?>"
-                                       class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+                            <a href="<?php echo site_url('studenti_has_brigady/'); ?>"
+                                                class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
@@ -114,8 +118,9 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control pull-right" id="datepicker" name="odkedy" value="<?php echo
-                                        !empty($post['odkedy']) ? $post['odkedy'] : ''; ?>">
+                                        <input type="text" class="form-control pull-right" id="datepicker" name="odkedy"
+                                               value="<?php echo
+                                               !empty($post['odkedy']) ? $post['odkedy'] : ''; ?>">
                                         <?php echo form_error('odkedy', '<p
 class="text-danger">', '</p>'); ?>
                                     </div>
@@ -126,7 +131,8 @@ class="text-danger">', '</p>'); ?>
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control pull-right" id="datepicker2" name="dokedy" value="<?php echo
+                                        <input type="text" class="form-control pull-right" id="datepicker2"
+                                               name="dokedy" value="<?php echo
                                         !empty($post['dokedy']) ? $post['dokedy'] : ''; ?>">
                                         <?php echo form_error('dokedy', '<p
 class="text-danger">', '</p>'); ?>
@@ -134,30 +140,46 @@ class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Hodinová sadzba študenta</label>
-                                    <input type="number" step="0.01" class="form-control"
-                                           name="hodinova_sadzba_studenta" placeholder="Hodinová sadzba študenta" value="<?php echo
-                                    !empty($post['hodinova_sadzba_studenta']) ? $post['hodinova_sadzba_studenta'] : ''; ?>">
-                                    <?php echo form_error('hodinova_sadzba_studenta', '<p
-class="text-danger">', '</p>'); ?>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
+                                        <input type="number" step="0.01" class="form-control"
+                                               name="hodinova_sadzba_studenta" placeholder="Hodinová sadzba študenta"
+                                               value="<?php echo
+                                               !empty($post['hodinova_sadzba_studenta']) ? $post['hodinova_sadzba_studenta'] : ''; ?>">
+                                        <?php echo form_error('hodinova_sadzba_studenta', '<p
+class="text-danger">', '</p>'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Odpracované hodiny</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
                                     <input type="number" class="form-control"
-                                           name="odpracovane_hodiny" placeholder="Odpraoované hodiny" value="<?php echo
+                                           name="odpracovane_hodiny" placeholder="Odpracované hodiny" value="<?php echo
                                     !empty($post['odpracovane_hodiny']) ? $post['odpracovane_hodiny'] : ''; ?>">
                                     <?php echo form_error('odpracovane_hodiny', '<p
-class="text-danger">', '</p>'); ?>
+class="text-danger">', '</p>'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <?php echo form_label('Meno študenta'); ?>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
                                     <?php echo form_dropdown('studenti_id_studenta', $users, $users_selected, 'class="form-control"'); ?>
-                                </div>
+                                    </div></div>
                                 <div class="form-group">
                                     <?php echo form_label('Názov brigády'); ?>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
                                     <?php echo form_dropdown('brigady_id_brigady', $brigady, $brigady_selected, 'class="form-control"'); ?>
-                                </div>
-                                <input type="submit" name="postSubmit" class="btn
-btn-primary" value="Odoslať"/>
+                                    </div></div>
+                                <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>
                         </div>
                     </div>
