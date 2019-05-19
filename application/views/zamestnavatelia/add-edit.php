@@ -3,17 +3,15 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="<?php echo base_url(); ?>/assets/icons/adminIcon.jpg" class="img-circle" alt="User Image">
             </div>
-        </form>
-        <!-- /.search form -->
+            <div class="pull-left info">
+                <p><?php echo $this->session->userdata('username') ?></p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Hlavné menu</li>
@@ -47,28 +45,10 @@
                     <li><a href="/brigady/index.php/kriteria"><i class="fa fa-circle-o"></i>Kritéria</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
+            <li>
+                <a href="/brigady/index.php/grafy">
                     <i class="fa fa-pie-chart"></i>
                     <span>Grafy</span>
-                    <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                    <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                    <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="../calendar.html">
-                    <i class="fa fa-calendar"></i> <span>Kalendár</span>
-                    <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
                 </a>
             </li>
         </ul>
@@ -89,13 +69,9 @@
             <li class="active">Zamestnávatelia</li>
         </ol>
     </section>
-
-
     <!-- Main content -->
     <section class="content">
         <div class="box-header">
-
-
             <div class="col-xs-12">
                 <?php
                 if (!empty($success_msg)) {
@@ -110,7 +86,7 @@
                     <div class="box box-warning">
                         <div class="panel-heading"><?php echo $action; ?>
                             <a href="<?php echo site_url('zamestnavatelia/'); ?>"
-                                            class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
+                               class="glyphicon glyphicon-arrow-left pull-right" style="color: #f39c12"></a></div>
                         <div class="panel-body">
                             <form method="post" action="" class="form">
                                 <div class="form-group">
@@ -119,10 +95,10 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-clipboard"></i>
                                         </div>
-                                    <input type="text" class="form-control"
-                                           name="nazov" placeholder="Zadajte nazov" value="<?php echo
-                                    !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
-                                    <?php echo form_error('nazov', '<p
+                                        <input type="text" class="form-control"
+                                               name="nazov" placeholder="Zadajte nazov" value="<?php echo
+                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
+                                        <?php echo form_error('nazov', '<p
 class="text-danger">', '</p>'); ?>
                                     </div>
                                 </div>
@@ -145,10 +121,10 @@ class="text-danger">', '</p>'); ?>
                                         <div class="input-group-addon">
                                             <i class="fa fa-envelope"></i>
                                         </div>
-                                    <input type="email" class="form-control"
-                                           name="email" placeholder="Zadajte email" value="<?php echo
-                                    !empty($post['email']) ? $post['email'] : ''; ?>">
-                                    <?php echo form_error('email', '<p class="helpblock
+                                        <input type="email" class="form-control"
+                                               name="email" placeholder="Zadajte email" value="<?php echo
+                                        !empty($post['email']) ? $post['email'] : ''; ?>">
+                                        <?php echo form_error('email', '<p class="helpblock
 text-danger">', '</p>'); ?>
                                     </div>
                                 </div>

@@ -52,11 +52,29 @@
 <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
 <script src="<?php echo base_url(); ?>/assets/theme/bower_components/Flot/jquery.flot.pie.js"></script>
 
+<!-- Skripty pre pdf, excel atd .. -->
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
 <!-- page script -->
 <script>
     $(function () {
         $('#example1').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {extend: 'copy', className: 'btn btn-warning'}, {
+                    extend: 'csv',
+                    className: 'btn btn-warning'
+                }, {extend: 'excel', className: 'btn btn-warning'}, {
+                    extend: 'pdf',
+                    className: 'btn btn-warning'
+                }, {extend: 'print', className: 'btn btn-warning'}
+            ],
             "language": {
                 "lengthMenu": "Zobraziť _MENU_ záznamov na stránku",
                 "search": "Vyhľadať:",
@@ -98,7 +116,7 @@
         xkey: 'datum',
         // A list of names of data record attributes that contain y-values.
         ykeys: ['counts'],
-        barColors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a'],
+        barColors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
         labels: ['counts'],
@@ -106,10 +124,53 @@
     });
 </script>
 <script>
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'barzamestnavateliaa',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        // The name of the data record attribute that contains x-values.
+        data: <?php echo $barzamestnavatelia; ?>,
+        xkey: 'zamestnavatel',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['pocet'],
+        barColors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['pocet'],
+        resize: true
+    });
+</script>
+<script>
+    new Morris.Bar({
+        // ID of the element in which to draw the chart.
+        element: 'hladajuBar',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        // The name of the data record attribute that contains x-values.
+        data: <?php echo $donut; ?>,
+        xkey: 'label',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value'],
+        barColors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['value'],
+        resize: true
+    });
+</script>
+<script>
+    Morris.Donut({
+        element: 'myfirstchartPie',
+        data: <?php echo $donut2; ?>,
+        colors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a']
+    });
+</script>
+<script>
     Morris.Donut({
         element: 'myfirstdonut',
         data: <?php echo $donut; ?>,
-        colors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a']
+        colors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a']
     });
 </script>
 <script>
@@ -121,7 +182,7 @@
         labels: ['Priemerná mzda'],
         behaveLikeLine: true,
         resize: true,
-        lineColors: ['#f39c12','#f0ad4e','#bf892b', '#ffb73a']
+        lineColors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a']
     });
 </script>
 </body>

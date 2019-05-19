@@ -18,6 +18,10 @@ class Studenti_has_zrucnosti extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
@@ -36,9 +40,13 @@ class Studenti_has_zrucnosti extends CI_Controller
         $this->load->view('common/footer');
     }
 
-    // Zobrazenie detailu o kriteriach
+    // Zobrazenie detailu o zručnostiach študentov
     public function view($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
@@ -57,6 +65,10 @@ class Studenti_has_zrucnosti extends CI_Controller
     // pridanie zaznamu
     public function add()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         $postData = array();
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
@@ -97,6 +109,10 @@ class Studenti_has_zrucnosti extends CI_Controller
     // aktualizacia dat
     public function edit($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // ziskanie dat z tabulky
         $postData = $this->Studenti_has_zrucnosti_model->getRows($id);
@@ -138,6 +154,10 @@ class Studenti_has_zrucnosti extends CI_Controller
     // odstranenie dat
     public function delete($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu

@@ -18,7 +18,12 @@ class Kriteria extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
+
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
             $data['success_msg'] = $this->session->userdata('success_msg');
@@ -39,6 +44,10 @@ class Kriteria extends CI_Controller
     // Zobrazenie detailu o kriteriach
     public function view($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
@@ -50,13 +59,16 @@ class Kriteria extends CI_Controller
             $this->load->view('common/footer');
         } else {
             redirect('/kriteria');
-
         }
     }
 
     // pridanie zaznamu
     public function add()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         $postData = array();
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
@@ -97,6 +109,10 @@ class Kriteria extends CI_Controller
     // aktualizacia dat
     public function edit($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // ziskanie dat z tabulky
         $postData = $this->Kriteria_model->getRows($id);
@@ -138,6 +154,10 @@ class Kriteria extends CI_Controller
     // odstranenie dat
     public function delete($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu

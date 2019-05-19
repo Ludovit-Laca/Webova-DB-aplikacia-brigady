@@ -17,12 +17,12 @@ class Preferencie extends CI_Controller
         $this->load->model('Home_model');
     }
 
-    public function data() {
-        print_r($this->Preferencie_model->record_count_per_user_array()) ;
-    }
-
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
@@ -36,7 +36,7 @@ class Preferencie extends CI_Controller
         $data['preferencie'] = $this->Preferencie_model->getRows();
         $data['pocet'] = $this->Preferencie_model->record_count ();
         $data['title'] = 'Preferencie List';
-        //nahratie zoznamu preferencií
+        // nahratie zoznamu preferencií
         $this->load->view('common/header', $data);
         $this->load->view('preferencie/index', $data);
         $this->load->view('common/footer');
@@ -45,6 +45,10 @@ class Preferencie extends CI_Controller
     // Zobrazenie detailu o preferenciach
     public function view($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
@@ -57,13 +61,16 @@ class Preferencie extends CI_Controller
             $this->load->view('common/footer');
         } else {
             redirect('/preferencie');
-
         }
     }
 
     // pridanie zaznamu
     public function add()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         $postData = array();
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
@@ -105,6 +112,10 @@ class Preferencie extends CI_Controller
     // aktualizacia dat
     public function edit($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // ziskanie dat z tabulky
         $postData = $this->Preferencie_model->getRows($id);
@@ -147,6 +158,10 @@ class Preferencie extends CI_Controller
     // odstranenie dat
     public function delete($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu

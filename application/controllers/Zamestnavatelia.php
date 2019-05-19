@@ -18,6 +18,10 @@ class Zamestnavatelia extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
@@ -31,14 +35,18 @@ class Zamestnavatelia extends CI_Controller
         $data['zamestnavatelia'] = $this->Zamestnavatelia_model->getRows();
         $data['title'] = 'Zamestnavatelia List';
         //nahratie zoznamu zamestnancov
-         $this->load->view('common/header', $data);
+        $this->load->view('common/header', $data);
         $this->load->view('zamestnavatelia/index', $data);
-         $this->load->view('common/footer');
+        $this->load->view('common/footer');
     }
 
     // Zobrazenie detailu o zamestnavatelovi
     public function view($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
@@ -50,13 +58,16 @@ class Zamestnavatelia extends CI_Controller
             $this->load->view('common/footer');
         } else {
             redirect('/zamestnavatelia');
-
         }
     }
 
     // pridanie zaznamu
     public function add()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         $postData = array();
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
@@ -97,6 +108,10 @@ class Zamestnavatelia extends CI_Controller
     // aktualizacia dat
     public function edit($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // ziskanie dat z tabulky
         $postData = $this->Zamestnavatelia_model->getRows($id);
@@ -136,6 +151,10 @@ class Zamestnavatelia extends CI_Controller
     // odstranenie dat
     public function delete($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu

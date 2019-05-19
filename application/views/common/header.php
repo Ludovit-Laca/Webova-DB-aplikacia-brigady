@@ -37,7 +37,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- [endif]-->
-
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -46,7 +45,7 @@
 <div class="wrapper">
     <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="/brigady/index.php" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>B</b>Lc</span>
             <!-- logo for regular state and mobile devices -->
@@ -63,16 +62,32 @@
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-
-                    <!-- Notifications: style can be found in dropdown.less -->
-
-                    <!-- Tasks: style can be found in dropdown.less -->
-
+                    <
                     <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="<?php echo base_url(); ?>/assets/icons/adminIcon.jpg" class="user-image"
+                                 alt="User Image">
+                            <span class="hidden-xs"><?php echo $this->session->userdata('username') ?></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="<?php echo base_url(); ?>/assets/icons/adminIcon.jpg" class="img-circle"
+                                     alt="User Image">
 
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                                <p>
+                                    <?php echo $this->session->userdata('username') ?>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-right-container">
+                                    <a href="<?php echo base_url() . 'index.php/home/logout'; ?>"
+                                       class="btn btn-warning btn-flat">Odhlásiť</a>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

@@ -1,16 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
     /**
      * Index Page for this controller.
      *
      * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     *	- or -
-     * 		http://example.com/index.php/welcome/index
-     *	- or -
+     *        http://example.com/index.php/welcome
+     *    - or -
+     *        http://example.com/index.php/welcome/index
+     *    - or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
@@ -25,11 +26,16 @@ class Home extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('Home_model');
+
     }
 
 
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
@@ -53,7 +59,48 @@ class Home extends CI_Controller {
         $this->load->view('common/footer', $data);
     }
 
-    public function data() {
-        echo json_encode($this->Home_model->record_count_per_user_array());
+    // presmerovanie na prihlasenie
+    public function login() {
+        $this->load->view("login/index.php");
+    }
+
+    // validacia zaslaných udajov
+    function login_validation() {
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if ($this->form_validation->run()) {
+            // true
+            $username = $this->input->post('username');
+            $password = $this->input->post("password");
+            // model
+            if ($this->Home_model->can_login($username, $password)) {
+                $session_data = array(
+                    'username' => $username
+                );
+                $this->session->set_userdata($session_data);
+                redirect(base_url() . 'index.php/home/enter');
+            } else {
+                $this->session->set_flashdata('error', 'Invalid Username and Password');
+                redirect(base_url() . 'index.php/home/login');
+            }
+        } else {
+            // false
+            $this->login();
+        }
+    }
+
+    // zisti či je niečo v session
+    function enter() {
+        if ($this->session->userdata('username') != '') {
+            redirect(base_url() . 'index.php');
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
+    }
+
+    // odhlasenie
+    function logout() {
+        $this->session->unset_userdata('username');
+        redirect(base_url() . 'index.php/home/login');
     }
 }

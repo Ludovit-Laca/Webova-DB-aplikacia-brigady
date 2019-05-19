@@ -16,12 +16,17 @@ class Studenti_has_brigady extends CI_Controller
         $this->load->model('Studenti_has_brigady_model');
     }
 
-    public function data() {
-        print_r($this->Studenti_has_brigady_model->record_count_per_user_array()) ;
+    public function data()
+    {
+        print_r($this->Studenti_has_brigady_model->record_count_per_user_array());
     }
 
     public function index()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         //ziskanie sprav zo session
         if ($this->session->userdata('success_msg')) {
@@ -34,7 +39,6 @@ class Studenti_has_brigady extends CI_Controller
         }
         $data['studenti_has_brigady'] = $this->Studenti_has_brigady_model->getRows();
         $data['title'] = 'Brigády študentov List';
-        //nahratie zoznamu preferencií
         $this->load->view('common/header', $data);
         $this->load->view('studenti_has_brigady/index', $data);
         $this->load->view('common/footer');
@@ -43,6 +47,10 @@ class Studenti_has_brigady extends CI_Controller
     // Zobrazenie detailu o brigádach študentov
     public function view($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // kontrola, ci bolo zaslane id riadka
         if (!empty($id)) {
@@ -61,6 +69,10 @@ class Studenti_has_brigady extends CI_Controller
     // pridanie zaznamu
     public function add()
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         $postData = array();
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
@@ -109,6 +121,10 @@ class Studenti_has_brigady extends CI_Controller
     // aktualizacia dat
     public function edit($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         $data = array();
         // ziskanie dat z tabulky
         $postData = $this->Studenti_has_brigady_model->getRows($id);
@@ -158,6 +174,10 @@ class Studenti_has_brigady extends CI_Controller
     // odstranenie dat
     public function delete($id)
     {
+        if ($this->session->userdata('username') != '') {
+        } else {
+            redirect(base_url() . 'index.php/home/login');
+        }
         // overenie, ci id nie je prazdne
         if ($id) {
             // odstranenie zaznamu
