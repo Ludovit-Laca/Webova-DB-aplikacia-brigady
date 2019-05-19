@@ -77,7 +77,7 @@ class Brigady_model extends CI_Model
             foreach ($dropdowns as $dropdown) {
                 $dropdownlist[$dropdown->id_zamestnavatela] = $dropdown->nazov;
             }
-            $dropdownlist[''] = 'Vyberte študenta ... ';
+            $dropdownlist[''] = 'Vyberte zamestnávateľa ... ';
             return $dropdownlist;
         }
     }

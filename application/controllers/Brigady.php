@@ -77,7 +77,7 @@ class Brigady extends CI_Controller
         //zistenie, ci bola zaslana poziadavka na pridanie zaznamu
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
-            $this->form_validation->set_rules('datum', 'dátum brigády', '');
+            $this->form_validation->set_rules('datum', 'dátum brigády', 'required');
             $this->form_validation->set_rules('nazov', 'názov brigády', 'trim|required|min_length[3]|max_length[40]');
             $this->form_validation->set_rules('hodinova_sadzba_brigada', 'hodinová sadzba', 'trim|required|min_length[1]|max_length[5]');
             $this->form_validation->set_rules('provizia_agentury', 'provízia agentúry', 'trim|required|min_length[1]|max_length[5]');
@@ -136,7 +136,7 @@ class Brigady extends CI_Controller
         if ($this->input->post('postSubmit')) {
             // definicia pravidiel validacie
             $this->form_validation->set_rules('datum', 'dátum brigády', 'required');
-            $this->form_validation->set_rules('nazov', 'názov brigády', 'trim|required|min_length[3]|max_length[20]');
+            $this->form_validation->set_rules('nazov', 'názov brigády', 'trim|required|min_length[3]|max_length[40]');
             $this->form_validation->set_rules('hodinova_sadzba_brigada', 'hodinová sadzba', 'trim|required|min_length[1]|max_length[5]');
             $this->form_validation->set_rules('provizia_agentury', 'provízia agentúry', 'trim|required|min_length[1]|max_length[5]');
             $this->form_validation->set_rules('aktualnost', 'aktualnost', 'required');

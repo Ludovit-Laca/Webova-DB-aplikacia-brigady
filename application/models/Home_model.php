@@ -110,4 +110,32 @@ class Home_model extends CI_Model
             return false;
         }
     }
+
+    function can_register($username, $password)
+    {
+        $this->db->where('username', $username);
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() > 0) {
+            return false;
+        } else {
+            $postData = array(
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password'),
+            );
+            $this->insert($postData);
+            return true;
+        }
+    }
+
+    // vlozenie zaznamu
+    public function insert($data = array())
+    {
+        $insert = $this->db->insert('users', $data);
+        if ($insert) {
+            return $this->db->insert_id();
+        } else {
+            return false;
+        }
+    }
 }

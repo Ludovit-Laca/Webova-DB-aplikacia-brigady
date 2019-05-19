@@ -97,10 +97,9 @@
                                         </div>
                                         <input type="text" class="form-control"
                                                name="nazov" placeholder="Zadajte nazov" value="<?php echo
-                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
-                                        <?php echo form_error('nazov', '<p
+                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>"></div>
+                                    <?php echo form_error('nazov', '<p
 class="text-danger">', '</p>'); ?>
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Telefón</label>
@@ -110,10 +109,10 @@ class="text-danger">', '</p>'); ?>
                                         </div>
                                         <input type="number" class="form-control"
                                                name="telefon" placeholder="Zadajte telefon" value="<?php echo
-                                        !empty($post['telefon']) ? $post['telefon'] : ''; ?>">
-                                        <?php echo form_error('telefon', '<p
+                                        !empty($post['telefon']) ? $post['telefon'] : ''; ?>"></div>
+                                    <?php echo form_error('telefon', '<p
 class="text-danger">', '</p>'); ?>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Email</label>
@@ -123,10 +122,9 @@ class="text-danger">', '</p>'); ?>
                                         </div>
                                         <input type="email" class="form-control"
                                                name="email" placeholder="Zadajte email" value="<?php echo
-                                        !empty($post['email']) ? $post['email'] : ''; ?>">
-                                        <?php echo form_error('email', '<p class="helpblock
+                                        !empty($post['email']) ? $post['email'] : ''; ?>"></div>
+                                    <?php echo form_error('email', '<p class="helpblock
 text-danger">', '</p>'); ?>
-                                    </div>
                                 </div>
                                 <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>

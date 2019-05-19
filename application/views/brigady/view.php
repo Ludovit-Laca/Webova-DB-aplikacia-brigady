@@ -124,7 +124,7 @@ pull-right" style="color: #f39c12"></a></div>
                 <div class="col-md-6">
                     <div class="box box-warning">
                         <div class="panel-heading">
-                            Počet brigád
+                            Počet brigád podľa mesiacov
                         </div>
                         <div class="box-header">
                             <div id="myfirstchart" style="height: 250px;"></div>

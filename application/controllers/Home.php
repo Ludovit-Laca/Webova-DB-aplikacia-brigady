@@ -64,7 +64,12 @@ class Home extends CI_Controller
         $this->load->view("login/index.php");
     }
 
-    // validacia zaslaných udajov
+    // presmerovanie na registraciu
+    public function register() {
+        $this->load->view("login/register.php");
+    }
+
+    // validacia zaslaných udajov pre login
     function login_validation() {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -80,12 +85,41 @@ class Home extends CI_Controller
                 $this->session->set_userdata($session_data);
                 redirect(base_url() . 'index.php/home/enter');
             } else {
-                $this->session->set_flashdata('error', 'Invalid Username and Password');
+                $this->session->set_flashdata('error', 'Zle použivateľské meno alebo heslo');
                 redirect(base_url() . 'index.php/home/login');
             }
         } else {
             // false
             $this->login();
+        }
+    }
+
+    // validácia zaslaných údajov pre registráciu
+    function register_validation() {
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('password2', 'Password', 'required');
+        if ($this->form_validation->run()) {
+            // true
+            $username = $this->input->post('username');
+            $password = $this->input->post("password");
+            $password2 = $this->input->post("password2");
+            if ($password == $password2) {
+                // model
+                if ($this->Home_model->can_register($username, $password)) {
+                    $this->session->set_flashdata('success','Boli ste zaregistrovaný');
+                    redirect(base_url() . 'index.php/home/login');
+                } else {
+                    $this->session->set_flashdata('error','Použivatelské meno je už registrované!');
+                    redirect(base_url() . 'index.php/home/register');
+                }
+            } else {
+                $this->session->set_flashdata('error',"Heslá sa nerovnajú");
+                redirect(base_url() . 'index.php/home/register');
+            }
+        } else {
+            // false
+            $this->register();
         }
     }
 

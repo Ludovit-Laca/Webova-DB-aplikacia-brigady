@@ -11,6 +11,14 @@
 <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+
+<!-- Morris.js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>/assets/theme/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Select2 -->
@@ -65,7 +73,7 @@
 <script>
     $(function () {
         $('#example1').DataTable({
-            dom: 'Bfrtip',
+            dom: 'Bfrltip',
             buttons: [
                 {extend: 'copy', className: 'btn btn-warning'}, {
                     extend: 'csv',
@@ -185,5 +193,6 @@
         lineColors: ['#f39c12', '#f0ad4e', '#bf892b', '#ffb73a']
     });
 </script>
+
 </body>
 </html>

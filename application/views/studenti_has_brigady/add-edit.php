@@ -98,10 +98,10 @@
                                         </div>
                                         <input type="text" class="form-control pull-right" id="datepicker" name="odkedy"
                                                value="<?php echo
-                                               !empty($post['odkedy']) ? $post['odkedy'] : ''; ?>">
+                                               !empty($post['odkedy']) ? $post['odkedy'] : ''; ?>"></div>
                                         <?php echo form_error('odkedy', '<p
 class="text-danger">', '</p>'); ?>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Dátum ukončenia</label>
@@ -111,10 +111,10 @@ class="text-danger">', '</p>'); ?>
                                         </div>
                                         <input type="text" class="form-control pull-right" id="datepicker2"
                                                name="dokedy" value="<?php echo
-                                        !empty($post['dokedy']) ? $post['dokedy'] : ''; ?>">
+                                        !empty($post['dokedy']) ? $post['dokedy'] : ''; ?>"></div>
                                         <?php echo form_error('dokedy', '<p
 class="text-danger">', '</p>'); ?>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Hodinová sadzba študenta</label>
@@ -125,9 +125,9 @@ class="text-danger">', '</p>'); ?>
                                         <input type="number" step="0.01" class="form-control"
                                                name="hodinova_sadzba_studenta" placeholder="Hodinová sadzba študenta"
                                                value="<?php echo
-                                               !empty($post['hodinova_sadzba_studenta']) ? $post['hodinova_sadzba_studenta'] : ''; ?>">
+                                               !empty($post['hodinova_sadzba_studenta']) ? $post['hodinova_sadzba_studenta'] : ''; ?>"></div>
                                         <?php echo form_error('hodinova_sadzba_studenta', '<p
-class="text-danger">', '</p>'); ?></div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Odpracované hodiny</label>
@@ -138,9 +138,9 @@ class="text-danger">', '</p>'); ?></div>
                                         <input type="number" class="form-control"
                                                name="odpracovane_hodiny" placeholder="Odpracované hodiny"
                                                value="<?php echo
-                                               !empty($post['odpracovane_hodiny']) ? $post['odpracovane_hodiny'] : ''; ?>">
+                                               !empty($post['odpracovane_hodiny']) ? $post['odpracovane_hodiny'] : ''; ?>"></div>
                                         <?php echo form_error('odpracovane_hodiny', '<p
-class="text-danger">', '</p>'); ?></div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <?php echo form_label('Meno študenta'); ?>

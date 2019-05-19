@@ -99,10 +99,10 @@
                                         </div>
                                         <input type="text" class="form-control pull-right" id="datepicker" name="datum"
                                                value="<?php echo
-                                               !empty($post['datum']) ? $post['datum'] : ''; ?>">
-                                        <?php echo form_error('datum', '<p
+                                               !empty($post['datum']) ? $post['datum'] : ''; ?>"></div>
+                                    <?php echo form_error('datum', '<p
 class="text-danger">', '</p>'); ?>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Názov brigády</label>
@@ -112,9 +112,9 @@ class="text-danger">', '</p>'); ?>
                                         </div>
                                         <input type="text" class="form-control"
                                                name="nazov" placeholder="Zadajte názov" value="<?php echo
-                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
+                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>"></div>
                                         <?php echo form_error('nazov', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Hodinová sadzba</label>
@@ -125,9 +125,9 @@ class="text-danger">', '</p>'); ?> </div>
                                         <input type="number" step="0.01" class="form-control"
                                                name="hodinova_sadzba_brigada" placeholder="Hodinová sadzba"
                                                value="<?php echo
-                                               !empty($post['hodinova_sadzba_brigada']) ? $post['hodinova_sadzba_brigada'] : ''; ?>">
+                                               !empty($post['hodinova_sadzba_brigada']) ? $post['hodinova_sadzba_brigada'] : ''; ?>"></div>
                                         <?php echo form_error('hodinova_sadzba_brigada', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Provízia agentúry</label>
@@ -137,9 +137,9 @@ class="text-danger">', '</p>'); ?> </div>
                                         </div>
                                         <input type="number" step="0.01" class="form-control"
                                                name="provizia_agentury" placeholder="Hodinová sadzba" value="<?php echo
-                                        !empty($post['provizia_agentury']) ? $post['provizia_agentury'] : ''; ?>">
+                                        !empty($post['provizia_agentury']) ? $post['provizia_agentury'] : ''; ?>"></div>
                                         <?php echo form_error('provizia_agentury', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Aktuálnosť</label><br/>
@@ -187,7 +187,7 @@ class="text-danger">', '</p>'); ?> </div>
                 <div class="col-md-6">
                     <div class="box box-warning">
                         <div class="panel-heading">
-                            Počet brigád
+                            Počet brigád podľa mesiacov
                         </div>
                         <div class="box-header">
                             <div id="myfirstchart" style="height: 250px;"></div>

@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li>
-                <a href="grafy">
+                <a href="/brigady/index.php/grafy">
                     <i class="fa fa-pie-chart"></i>
                     <span>Grafy</span>
                 </a>

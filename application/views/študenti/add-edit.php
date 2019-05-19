@@ -98,9 +98,9 @@
                                         </div>
                                         <input type="text" class="form-control"
                                                name="meno" placeholder="Zadajte meno" value="<?php echo
-                                        !empty($post['meno']) ? $post['meno'] : ''; ?>">
+                                        !empty($post['meno']) ? $post['meno'] : ''; ?>"></div>
                                         <?php echo form_error('meno', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Priezvisko</label>
@@ -110,9 +110,9 @@ class="text-danger">', '</p>'); ?> </div>
                                         </div>
                                         <input type="text" class="form-control"
                                                name="priezvisko" placeholder="Zadajte priezvisko" value="<?php echo
-                                        !empty($post['priezvisko']) ? $post['priezvisko'] : ''; ?>">
+                                        !empty($post['priezvisko']) ? $post['priezvisko'] : ''; ?>"></div>
                                         <?php echo form_error('priezvisko', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Telefón</label>
@@ -122,9 +122,9 @@ class="text-danger">', '</p>'); ?> </div>
                                         </div>
                                         <input type="number" class="form-control"
                                                name="telefon" placeholder="Zadajte telefon" value="<?php echo
-                                        !empty($post['telefon']) ? $post['telefon'] : ''; ?>">
+                                        !empty($post['telefon']) ? $post['telefon'] : ''; ?>"></div>
                                         <?php echo form_error('telefon', '<p class="helpblock
-text-danger">', '</p>'); ?> </div>
+text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Adresa</label>
@@ -134,9 +134,9 @@ text-danger">', '</p>'); ?> </div>
                                         </div>
                                         <input type="text" class="form-control"
                                                name="adresa" placeholder="Zadajte adresu" value="<?php echo
-                                        !empty($post['adresa']) ? $post['adresa'] : ''; ?>">
+                                        !empty($post['adresa']) ? $post['adresa'] : ''; ?>"></div>
                                         <?php echo form_error('adresa', '<p
-class="text-danger">', '</p>'); ?> </div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <input type="submit" name="postSubmit" class="btn btn-warning" value="Odoslať"/>
                             </form>

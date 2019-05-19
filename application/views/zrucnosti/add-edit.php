@@ -98,9 +98,9 @@
                                         </div>
                                         <input type="text" class="form-control"
                                                name="nazov" placeholder="Zadajte názov" value="<?php echo
-                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>">
+                                        !empty($post['nazov']) ? $post['nazov'] : ''; ?>"></div>
                                         <?php echo form_error('nazov', '<p
-class="text-danger">', '</p>'); ?></div>
+class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Popis</label>

@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="box box-warning">
-                    <h3 class="box-title" style="text-align: center">Počet brigád</h3>
+                    <h3 class="box-title" style="text-align: center">Počet brigád podľa mesiacov</h3>
                     <div class="box-header">
                         <div id="myfirstchart" style="height: 250px;"></div>
                     </div>
@@ -82,7 +82,7 @@
             </div>
             <div class="col-md-6">
                 <div class="box box-warning">
-                    <h3 class="box-title" style="text-align: center">Počet brigád</h3>
+                    <h3 class="box-title" style="text-align: center">Počet brigád podľa mesiacov</h3>
                     <div class="box-header">
                         <div id="myfirstchartPie" style="height: 250px;"></div>
                     </div>
